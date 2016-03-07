@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "scriptcal", "scriptcal\scriptcal.vcxproj", "{9463CEC3-F81D-4B71-BCBE-76A9AEF47F73}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test", "..\test\test.vcxproj", "{27766962-3644-41CD-B333-8A154064B2DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9463CEC3-F81D-4B71-BCBE-76A9AEF47F73}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9463CEC3-F81D-4B71-BCBE-76A9AEF47F73}.Debug|Win32.Build.0 = Debug|Win32
+		{9463CEC3-F81D-4B71-BCBE-76A9AEF47F73}.Release|Win32.ActiveCfg = Release|Win32
+		{9463CEC3-F81D-4B71-BCBE-76A9AEF47F73}.Release|Win32.Build.0 = Release|Win32
+		{27766962-3644-41CD-B333-8A154064B2DD}.Debug|Win32.ActiveCfg = Debug|Win32
+		{27766962-3644-41CD-B333-8A154064B2DD}.Debug|Win32.Build.0 = Debug|Win32
+		{27766962-3644-41CD-B333-8A154064B2DD}.Release|Win32.ActiveCfg = Release|Win32
+		{27766962-3644-41CD-B333-8A154064B2DD}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
