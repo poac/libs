@@ -46,6 +46,7 @@
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>../../../include;../../../src;$(IncludePath)</IncludePath>
     <GenerateManifest>true</GenerateManifest>
+    <OutDir>../../../test\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
