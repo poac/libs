@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\include\oprator.h" />
     <ClInclude Include="..\..\..\..\include\scriptcal.h" />
   </ItemGroup>
   <ItemGroup>
