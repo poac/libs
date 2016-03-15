@@ -14,6 +14,7 @@ namespace poac
 	//}
 
 	int Foo(int x, int y){return x+y;}
+	int Bar(int x, int y){return x-y;}
 
 	class CNode{
 	public:

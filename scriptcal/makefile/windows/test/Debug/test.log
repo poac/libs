@@ -1,30 +1,26 @@
-﻿生成启动时间为 3/9/2016 3:17:05 PM。
-     1>项目“C:\Users\76477\Desktop\闫-项目\lib\scriptcal\makefile\windows\test\test.vcxproj”在节点 3 上(rebuild 个目标)。
-     1>_PrepareForClean:
-         正在删除文件“Debug\test.lastbuildstate”。
-       InitializeBuildStatus:
+﻿生成启动时间为 3/15/2016 8:16:13 PM。
+     1>项目“D:\projects\My GitHub Projects\libs\scriptcal\makefile\windows\test\test.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
          正在创建“Debug\test.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:/Program Files (x86)/Mylibs/googletest/include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\..\test\test.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:/Program Files (x86)/Mylibs/googletest/include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\..\test\test.cpp
          test.cpp
        ManifestResourceCompile:
-         c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\testd.exe.embed.manifest.res" Debug\testd_manifest.rc 
+         所有输出均为最新。
        Link:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"../../../test\testd.exe" /INCREMENTAL /NOLOGO "C:/Program Files (x86)/Mylibs/googletest/msvc/gtest/Debug/gtestd.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\testd.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"C:\Users\76477\Desktop\闫-项目\lib\scriptcal\test\testd.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"../../../test\testd.lib" /MACHINE:X86 Debug\testd.exe.embed.manifest.res
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"../../../test\testd.exe" /INCREMENTAL /NOLOGO "C:/Program Files (x86)/Mylibs/googletest/msvc/gtest/Debug/gtestd.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\testd.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"D:\projects\My GitHub Projects\libs\scriptcal\test\testd.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"../../../test\testd.lib" /MACHINE:X86 Debug\testd.exe.embed.manifest.res
          Debug\test.obj
        Manifest:
-         正在删除文件“Debug\testd.exe.embed.manifest”。
-         c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\testd.exe.embed.manifest" /manifest Debug\testd.exe.intermediate.manifest
-         c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\testd.exe.embed.manifest.res" Debug\testd_manifest.rc 
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\testd.exe.embed.manifest" /manifest Debug\testd.exe.intermediate.manifest
+         所有输出均为最新。
        LinkEmbedManifest:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"../../../test\testd.exe" /INCREMENTAL /NOLOGO "C:/Program Files (x86)/Mylibs/googletest/msvc/gtest/Debug/gtestd.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\testd.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"C:\Users\76477\Desktop\闫-项目\lib\scriptcal\test\testd.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"../../../test\testd.lib" /MACHINE:X86 Debug\testd.exe.embed.manifest.res
-         Debug\test.obj
-         test.vcxproj -> C:\Users\76477\Desktop\闫-项目\lib\scriptcal\makefile\windows\test\../../../test\testd.exe
+         所有输出均为最新。
+         test.vcxproj -> D:\projects\My GitHub Projects\libs\scriptcal\makefile\windows\test\../../../test\testd.exe
        FinalizeBuildStatus:
          正在删除文件“Debug\test.unsuccessfulbuild”。
          正在对“Debug\test.lastbuildstate”执行 Touch 任务。
-     1>已完成生成项目“C:\Users\76477\Desktop\闫-项目\lib\scriptcal\makefile\windows\test\test.vcxproj”(rebuild 个目标)的操作。
+     1>已完成生成项目“D:\projects\My GitHub Projects\libs\scriptcal\makefile\windows\test\test.vcxproj”(build 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:13.82
+已用时间 00:00:02.55
