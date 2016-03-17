@@ -4,6 +4,7 @@
 
 namespace poac
 {
+	int Bar(int x, int y){return x-y;}
 	class CNode{
 	public:
 		CNode();
