@@ -17,6 +17,8 @@ template <typename T>
 class COperationAdd:public COperation
 {
 // ...
+public:
+	vector<T> GetPara(){};
 };
 
 template <typename T>
