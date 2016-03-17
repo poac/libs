@@ -1,26 +1,20 @@
-#ifndef _SCRIPTCAL_H
-#define _SCRIPTCAL_H
-#endif
+#ifndef _SCRIPTCAL_H_
+#define _SCRIPTCAL_H_
 
 namespace poac
 {
-	int Bar(int x, int y){return x-y;}
-	class CNode{
-	public:
-		CNode();
 
-	private:
-		double m_value;
+class CScriptCal{
+public:
+	double Cal(int x);
+	double Cal(double x);
+	bool InitScript(string input);
 
-	};
-
-	class CScript{
-	public:
-		CScript();
-		~CScript();
-
-	private:
-		
-	};
+private:
+	cal::CCal m_cal;
+	script::CSript m_script;
+};
 
 };
+
+#endif
