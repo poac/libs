@@ -32,5 +32,8 @@
     <ClCompile Include="..\..\..\..\src\scriptcal.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\src\script.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
