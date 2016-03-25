@@ -1,5 +1,7 @@
 #include "script.h"
+#include "script.cpp"
 #include "cal.h"
+#include "cal.cpp"
 
 #ifndef _SCRIPTCAL_H_
 #define _SCRIPTCAL_H_
@@ -16,7 +18,7 @@ public:
 private:
 	double y;
 	cal::CCal m_cal;
-	script::CSript m_script;
+	script::CScript m_script;
 };
 
 };

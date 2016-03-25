@@ -3,6 +3,7 @@
 //#include <fstream>
 //#include <iostream>
 #include "scriptcal.h"
+#include "script.h"
 
 using namespace std;
 using namespace poac;
@@ -11,9 +12,9 @@ using namespace poac;
 TEST(FooTest, HandleNoneZeroInput)   //Ò»¸öÓÒ±ß²ÎÊý¶ÔÓ¦Ò»¸ö²âÊÔÓÃÀý£¬×ó±ß²ÎÊý¶ÔÓ¦Ò»¸ö²âÊÔ¼¯
 {
 
-	EXPECT_EQ(3, Foo(2,1));
-	EXPECT_EQ(4, Foo(2,2));
-	EXPECT_EQ(8, Foo(5,3));
+	//EXPECT_EQ(3, Foo(2,1));
+	//EXPECT_EQ(4, Foo(2,2));
+	//EXPECT_EQ(8, Foo(5,3));
 
 	//ifstream in("123.txt");
 	//if (! in.is_open())
@@ -29,25 +30,29 @@ TEST(FooTest, HandleNoneZeroInput)   //Ò»¸öÓÒ±ß²ÎÊý¶ÔÓ¦Ò»¸ö²âÊÔÓÃÀý£¬×ó±ß²ÎÊý¶ÔÓ
 TEST(FooTest, HandleInvalidInput)
 {
 
-	EXPECT_EQ(3, Foo(2,1));
-	EXPECT_EQ(4, Foo(2,2));
-	EXPECT_EQ(8, Foo(5,3));
+	//EXPECT_EQ(3, Foo(2,1));
+	//EXPECT_EQ(4, Foo(2,2));
+	//EXPECT_EQ(8, Foo(5,3));
 }
 
 TEST(BarTest, HandleNoneZeroInput)
 {
 
-	EXPECT_EQ(3, Bar(2,1));
-	EXPECT_EQ(4, Bar(6,2));
-	EXPECT_EQ(8, Bar(2,3));
+	//EXPECT_EQ(3, Bar(2,1));
+	//EXPECT_EQ(4, Bar(6,2));
+	//EXPECT_EQ(8, Bar(2,3));
 }
 
 
 
 int main(int argc, char* argv[])
 {
-    testing::InitGoogleTest(&argc, argv);
+	testing::InitGoogleTest(&argc, argv);
 	RUN_ALL_TESTS();
+
+	script::CScript testScript;
+	testScript.InitScript("y=a+3;a=3");
+	testScript.PrintScript();
 
     return 0;
 }

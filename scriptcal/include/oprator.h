@@ -2,6 +2,10 @@
 // ----------------------‘ÀÀ„¿‡------------------------
 // ----------------------------------------------------
 
+#ifndef cwj
+#define cwj
+#endif
+
 #ifndef _OPRATOR_H_
 #define _OPRATOR_H_
 
@@ -256,6 +260,7 @@ public:
 		m_OperationSet.insert("/");
 		m_OperationSet.insert("(");
 		m_OperationSet.insert(")");
+		m_OperationSet.insert("=");
 	}
 
   //  static COperation* createOperation(string operate){

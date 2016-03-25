@@ -17,6 +17,7 @@
     <ClInclude Include="..\..\..\..\include\scriptcal.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\src\cal.cpp" />
     <ClCompile Include="..\..\..\..\src\script.cpp" />
     <ClCompile Include="..\..\..\..\src\scriptcal.cpp" />
   </ItemGroup>

@@ -8,8 +8,8 @@ namespace cal{
 
 class CCal{
 public:
-	bool CalScript(const script::CSript & CalModel, int x);
-	bool CalScript(const script::CSript & CalModel, double x);
+	bool CalScript(const script::CScript & CalModel, int x);
+	bool CalScript(const script::CScript & CalModel, double x);
 	double GetResult(){return result;}
 private:
 	double result;
