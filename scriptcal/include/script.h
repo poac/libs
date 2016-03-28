@@ -8,7 +8,9 @@
 using namespace std;
 using namespace oprator;
 
-namespace script{
+namespace poac
+{ namespace script{
+
 
 
 class CScript{
@@ -34,6 +36,7 @@ private:
 	vector<string> m_ScriptStrPart;
 };
 
+};
 };
 
 #endif

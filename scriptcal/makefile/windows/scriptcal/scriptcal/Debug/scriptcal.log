@@ -1,16 +1,11 @@
-﻿生成启动时间为 3/25/2016 3:57:39 PM。
-     1>项目“C:\Users\76477\Desktop\闫-项目\lib\scriptcal\makefile\windows\scriptcal\scriptcal\scriptcal.vcxproj”在节点 3 上(rebuild 个目标)。
-     1>_PrepareForClean:
-         正在删除文件“Debug\scriptcal.lastbuildstate”。
-       InitializeBuildStatus:
+﻿生成启动时间为 3/28/2016 3:48:45 PM。
+     1>项目“C:\Users\76477\Desktop\闫-项目\lib\scriptcal\makefile\windows\scriptcal\scriptcal\scriptcal.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
          正在创建“Debug\scriptcal.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\..\..\src\cal.cpp ..\..\..\..\src\script.cpp ..\..\..\..\src\scriptcal.cpp
-         scriptcal.cpp
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\..\..\src\script.cpp
          script.cpp
-     1>c:\users\76477\desktop\闫-项目\lib\scriptcal\src\script.cpp(16): warning C4018: “<”: 有符号/无符号不匹配
-         cal.cpp
-         正在生成代码...
+     1>c:\users\76477\desktop\闫-项目\lib\scriptcal\src\script.cpp(17): warning C4018: “<”: 有符号/无符号不匹配
        Lib:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"../../../../lib\scriptcald.lib" /NOLOGO Debug\cal.obj
          Debug\script.obj
@@ -20,8 +15,8 @@
        FinalizeBuildStatus:
          正在删除文件“Debug\scriptcal.unsuccessfulbuild”。
          正在对“Debug\scriptcal.lastbuildstate”执行 Touch 任务。
-     1>已完成生成项目“C:\Users\76477\Desktop\闫-项目\lib\scriptcal\makefile\windows\scriptcal\scriptcal\scriptcal.vcxproj”(rebuild 个目标)的操作。
+     1>已完成生成项目“C:\Users\76477\Desktop\闫-项目\lib\scriptcal\makefile\windows\scriptcal\scriptcal\scriptcal.vcxproj”(build 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:02.26
+已用时间 00:00:01.08
