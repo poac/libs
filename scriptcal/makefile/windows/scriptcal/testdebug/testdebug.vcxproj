@@ -68,6 +68,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\src\cal.cpp" />
+    <ClCompile Include="..\..\..\..\src\oprator.cpp" />
     <ClCompile Include="..\..\..\..\src\script.cpp" />
     <ClCompile Include="..\..\..\..\src\scriptcal.cpp" />
     <ClCompile Include="..\..\..\..\test\test.cpp" />

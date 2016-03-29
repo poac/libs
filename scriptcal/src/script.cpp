@@ -5,16 +5,16 @@ namespace poac {
 
 		// Script初始化工作
 		bool CScript::InitScript(string input){
+			Clear();
 			if (input.size() < 1 || !SeparateStr(input)) {
 				// 分词失败
 				return false;
 			}
-
 			return true;
 		}
-
+		// 打印分词情况
 		void CScript::PrintScript(){
-			for (int i = 0; i < m_ScriptStrPart.size(); i++){
+			for (unsigned int i = 0; i < m_ScriptStrPart.size(); i++){
 				cout << m_ScriptStrPart[i] << "|";
 			}
 			cout << endl;
@@ -42,7 +42,6 @@ namespace poac {
 
 			return _Unknow;
 		}//GetTypeChar
-
 		// 对输入的字符串进行分词
 		bool CScript::SeparateStr(string input){
 			int len_input = input.size();
@@ -99,6 +98,12 @@ namespace poac {
 				}
 			}
 			return true;
+		}
+		// 清理成员变量，重新生成
+		void CScript::Clear(){
+			if (m_ScriptStrPart.size() > 0) {
+				m_ScriptStrPart.clear();
+			}
 		}
 
 	};
