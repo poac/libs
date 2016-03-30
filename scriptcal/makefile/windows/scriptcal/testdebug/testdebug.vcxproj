@@ -67,6 +67,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\..\add_unittest.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\arithmetic_unittest.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\bracket_unittest.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\divide_unittest.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\multiply_unittest.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\sub_unittest.cpp" />
     <ClCompile Include="..\..\..\..\src\cal.cpp" />
     <ClCompile Include="..\..\..\..\src\oprator.cpp" />
     <ClCompile Include="..\..\..\..\src\script.cpp" />
