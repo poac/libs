@@ -3,15 +3,56 @@
 
 using namespace std;
 using namespace poac;
-//using namespace poac::script;
+using namespace poac::script;
 
 
+TEST(FooTest, HandleNoneZeroInput)   
+{
+
+	//EXPECT_EQ(3, Foo(2,1));
+	//EXPECT_EQ(4, Foo(2,2));
+	//EXPECT_EQ(8, Foo(5,3));
+
+	//ifstream in("123.txt");
+	//if (! in.is_open())
+	//	cout << "Error open" << endl;
+	//while (!in.eof() )  
+	//   {  
+	//	int a, b, c;
+	//	in >> a >> b >> c;
+	//	EXPECT_EQ(a, Foo(b,c));
+	//   } 
+}
+
+TEST(FooTest, HandleInvalidInput)
+{
+
+	//EXPECT_EQ(3, Foo(2,1));
+	//EXPECT_EQ(4, Foo(2,2));
+	//EXPECT_EQ(8, Foo(5,3));
+}
+
+TEST(BarTest, HandleNoneZeroInput)
+{
+
+	//EXPECT_EQ(3, Bar(2,1));
+	//EXPECT_EQ(4, Bar(6,2));
+	//EXPECT_EQ(8, Bar(2,3));
+}
 
 
 int main(int argc, char* argv[])
 {
-	testing::InitGoogleTest(&argc, argv);
-	return RUN_ALL_TESTS();
-	testScript.InitScript("y = 5.439*(x+3)-(x*x+a+-3);a=3");
+	script::CScript testScript;
+	testScript.InitScript("y=a+3;a=3");
+	testScript.PrintScript();
 
+	testScript.InitScript("y = 5.439*(x+3)-(x*x+a+-3);a=3");
+	testScript.PrintScript();
+
+	//testing::InitGoogleTest(&argc, argv);
+	//RUN_ALL_TESTS();
+
+	getchar();
+	return 0;
 }
