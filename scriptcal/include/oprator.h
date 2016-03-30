@@ -12,13 +12,62 @@ using namespace std;
 
 namespace poac{
 	namespace script{
-		const double kMinErro = 0.0001;	// 最小误差
+		const double gk_MinErro = 0.0001;	// 最小误差
 		enum ETypeValue{
 			_Unkown = -1,		// 没有赋值
 			_DoubleVale = 0,	// double型
 			_IntVale = 1,		// 整型变量
 			_UnIntVale = 2		// 无符号整形
 		};
+		const string gk_Operators[] = {
+			"=",
+			"+", "-",
+			"*", "/",
+			"(", ")",
+			"In", "Sin", "Cos", "Tg", "Ctg", "Sinh", "Cosh", "Th", "exp", "Abs", "hex2dec",
+			"@", "~", "xor"
+		};
+
+		int GetPriority(string input){
+			string _No1_Priority[] = { "(", ")" };
+			// 一元运算符
+			string _No2_Priority[] = { "~",
+				"In", "Sin", "Cos", "Tg", "Ctg", "Sinh", "Cosh", "Th", "exp", "Abs", "hex2dec"
+			};
+			// 二元运算符
+			string _No3_Priority[] = {
+				"*", "/"
+			};
+			string _No4_Priority[] = {
+				"+", "-"
+			};
+
+			for (int i = 0; i < sizeof(_No1_Priority)/sizeof(string); i++){
+				if (input == _No1_Priority[i]) {
+					return 1;
+				}
+			}
+			
+			for (int i = 0; i < sizeof(_No2_Priority)/sizeof(string); i++){
+				if (input == _No2_Priority[i]) {
+					return 2;
+				}
+			}
+
+			for (int i = 0; i < sizeof(_No3_Priority)/sizeof(string); i++){
+				if (input == _No3_Priority[i]) {
+					return 3;
+				}
+			}
+
+			for (int i = 0; i < sizeof(_No3_Priority)/sizeof(string); i++){
+				if (input == _No3_Priority[i]) {
+					return 4;
+				}
+			}
+			return -1;
+		}
+
 
 		// 共用体,int,un int ,double
 		union UValue{
@@ -59,7 +108,7 @@ namespace poac{
 			}
 			int GetIntValue() const {
 				if (m_Type == _DoubleVale) {
-					if (abs(m_Value.m_DoubleValue) < kMinErro)	// 误差内可以转换
+					if (abs(m_Value.m_DoubleValue) < gk_MinErro)	// 误差内可以转换
 						return (int)m_Value.m_DoubleValue;
 					else
 						return 0;
@@ -75,7 +124,7 @@ namespace poac{
 			}
 			unsigned int GetUIntValue() const {
 				if (m_Type == _DoubleVale) {
-					if (abs(m_Value.m_DoubleValue) < kMinErro)	// 误差内可以转换
+					if (abs(m_Value.m_DoubleValue) < gk_MinErro)	// 误差内可以转换
 						return (unsigned int)m_Value.m_DoubleValue;
 					else
 						return 0;
@@ -177,7 +226,7 @@ namespace poac{
 					return SVarValue("DIV");
 				}
 
-				if (abs(DivPara.GetDoubleValue()) < kMinErro) {
+				if (abs(DivPara.GetDoubleValue()) < gk_MinErro) {
 					// 除数为0
 					return SVarValue("DIV");
 				}
@@ -188,8 +237,14 @@ namespace poac{
 
 		class COperation{
 		public:
-			COperation();
-			virtual ~COperation();
+			// 构造函数
+			COperation(){}
+			COperation(string name):m_Val(name){}
+			COperation(string name, double value):m_Val(name,value){}
+			COperation(string name, int value):m_Val(name,value){}
+			COperation(string name, unsigned int value):m_Val(name,value){}
+			// 析构函数
+			virtual ~COperation(){}
 			// 获取结果，返回double
 			double GetResult();
 			// 获取结果，返回SVarValue
@@ -221,17 +276,9 @@ namespace poac{
 			// 重写cal计算函数
 			bool Cal();
 		};
-
-		// 运算工厂
-		class COperationFactory {
+		class COperationEqu:public COperation{
 		public:
-			COperationFactory();
-			virtual ~COperationFactory();
-			// 判断输入是否是运算符
-			bool isOperation(char operate);
-			bool isOperation(string operate);
-		private:
-			set<string> m_OperationSet;
+			bool Cal();
 		};
 	};
 };

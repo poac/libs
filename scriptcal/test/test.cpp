@@ -47,7 +47,7 @@ int main(int argc, char* argv[])
 	testScript.InitScript("y=a+3;a=3");
 	testScript.PrintScript();
 
-	testScript.InitScript("y = 5*(x+3)-(x*x+a+-3);a=3");
+	testScript.InitScript("y = 5.439*(x+3)-(x*x+a+-3);a=3");
 	testScript.PrintScript();
 
 	//testing::InitGoogleTest(&argc, argv);

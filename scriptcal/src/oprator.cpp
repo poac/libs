@@ -6,10 +6,6 @@ namespace poac{
 /************************************************************************/
 /*                      COperation类成员函数                            */
 /************************************************************************/
-		// COperation初始化
-		COperation::COperation():m_Val(){
-			// 初始化变量
-		}
 		// 获取结果，若存在返回double型值，否则返回0
 		double COperation::GetResult(){
 			if (IsExit()) {
@@ -38,6 +34,10 @@ namespace poac{
 			else{
 				return true;
 			}
+		}
+		// 返回IsExit的值
+		bool COperation::Cal(){
+			return IsExit();
 		}
 
 /************************************************************************/
@@ -109,63 +109,19 @@ namespace poac{
 			return IsExit();
 		}		
 
-/************************************************************************/
-/*				  COperationFactory运算工厂成员函数	                    */
-/************************************************************************/
-		// 初始化，将必要的运算符加入运算符集合
-		COperationFactory::COperationFactory(){
-			m_OperationSet.insert("+");
-			m_OperationSet.insert("-");
-			m_OperationSet.insert("*");
-			m_OperationSet.insert("/");
-			m_OperationSet.insert("(");
-			m_OperationSet.insert(")");
-			m_OperationSet.insert("=");
-		}
-		// 判断输入是否是运算符
-		bool COperationFactory::isOperation(string operate){
-			//judge the operate is a operation
-			if (m_OperationSet.count(operate) > 0){
-				return true;
-			}
-			else{
+		/////////////////////////////////////////////////////////////////
+		// COperationEqu类——等号
+		/////////////////////////////////////////////////////////////////
+		bool COperationEqu::Cal(){
+			if (m_para.size() < 1){
+				// 参数列表
 				return false;
 			}
-		}
-		bool COperationFactory::isOperation(char operate){
-			string tem = string(1,operate);
-			return isOperation(tem);
-		}
-		// 符号工厂，针对输入产生对应的符号计算对象
-		static COperation* createOperation(string operate){
-		      // ...
-			COperation * oper = NULL;
-			if (operate.size() < 1) {
-				// 输入为空
-				return oper;
+			else {
+				this->SetValue(m_para[0].GetValue());
 			}
-
-			// 先根据首个字符进行粗分类
-			char _SwichCase = operate[0];
-			switch(_SwichCase){
-				case '+':
-					oper = new COperationAdd();
-					break;
-				case '-':
-					oper = new COperationSub();
-					break;
-				case '*':
-					oper = new COperationMul();
-					break;
-				case '/':
-					oper = new COperationDiv();
-					break;
-				default:
-					oper = NULL;
-					break;
-			}
-		      return oper;
-		};
+			return IsExit();
+		}	
 
 	};// namespace script
 };// namespace poac
