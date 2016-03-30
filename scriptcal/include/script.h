@@ -37,7 +37,7 @@ namespace poac{
 			bool InitScript(string input);
 			void PrintScript();
 		private:
-			// 对字符input判定输入类型
+			// 对字符input判定输入类型  
 			int GetTypeChar(char input);
 			// 对输入的字符串分词
 			bool SeparateStr(string input);
