@@ -2,7 +2,7 @@
 #include "script.h"
 
 using namespace std;
-using namespace poac;
+using namespace poac::script;
 //using namespace poac::script;
 
 

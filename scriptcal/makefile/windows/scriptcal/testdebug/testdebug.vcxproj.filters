@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="源文件\arithmetic_operator">
+      <UniqueIdentifier>{2add300b-29e9-4bde-af79-d5f43620a8df}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\src\cal.cpp">
@@ -30,23 +33,26 @@
     <ClCompile Include="..\..\..\..\src\oprator.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\add_unittest.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\arithmetic_unittest.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\..\..\bracket_unittest.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\divide_unittest.cpp">
+    <ClCompile Include="..\..\..\..\test\exponent_unittest.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\add_unittest.cpp">
+      <Filter>源文件\arithmetic_operator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\arithmetic_unittest.cpp">
+      <Filter>源文件\arithmetic_operator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\divide_unittest.cpp">
+      <Filter>源文件\arithmetic_operator</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\..\multiply_unittest.cpp">
-      <Filter>源文件</Filter>
+      <Filter>源文件\arithmetic_operator</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\..\sub_unittest.cpp">
-      <Filter>源文件</Filter>
+      <Filter>源文件\arithmetic_operator</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
