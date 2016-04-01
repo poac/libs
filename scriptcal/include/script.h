@@ -7,6 +7,8 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <stack>
+#include <cmath>
 #include "oprator.h"
 using namespace std;
 
@@ -51,9 +53,9 @@ namespace poac{
 			void PrintScript();
 		private:
 			// 对字符input判断输入类型  
-			int GetTypeChar(char input);
+			ETypeChar GetTypeChar(char input);
 			// 对字符串input判断输入类型
-			int GetTypeStr(string input);
+			ETypeChar GetTypeStr(string input);
 			// 判断是否是操作符
 			bool isOperator(char input);
 			bool isOperator(string input);
@@ -61,6 +63,8 @@ namespace poac{
 			bool SeparateStr(string input);
 			// 对分好的字符串建树
 			bool CreatScriptTree();
+			// 将数值类型的string转化为double
+			SVarValue CScript::String2VarValue(string input);
 			// 清理成员变量
 			void Clear();
 		private:

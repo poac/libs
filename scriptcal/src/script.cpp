@@ -61,7 +61,7 @@ namespace poac {
 		}
 
 		// 对字符input判定输入类型：
-		int CScript::GetTypeChar(char input){
+		ETypeChar CScript::GetTypeChar(char input){
 			if (input == ' ' || input == '	') {
 				return _Blank;
 			}
@@ -84,7 +84,8 @@ namespace poac {
 			}
 			return _Unknow;
 		}//GetTypeChar
-		int CScript::GetTypeStr(string input){
+		// 对字符串string input判断输入类型
+		ETypeChar CScript::GetTypeStr(string input){
 			// 长度为0
 			if (input.size() < 1) {
 				return _Unknow;
@@ -105,22 +106,39 @@ namespace poac {
 				return _Operate;
 			}
 
-			ETypeChar type_First = (ETypeChar)GetTypeChar(input[0]);
-			bool isFloat = false;
+			ETypeChar type_First = GetTypeChar(input[0]);
+			bool isFloat = false;	// 标记是否有小数点
+			bool isEx = false;		// 判断是否是科学计数法
 			switch(type_First){
 			case _Number:
 				// 检测字符串是不是数字
 				for (unsigned int i = 1; i < input.size(); i++){
 					if (GetTypeChar(input[i]) != _Number) {
+						if (i == input.size()-1) {
+							// 最后一个字符不是数字
+							return _Unknow;
+						}
 						// 若不是数字，判断是否第一次出现字母e，表示该数为float型
-						if (input[i] == 'e') {
+						if (input[i] == 'e' /*|| input[i] == 'E'*/) {
+							if (isEx == false) {
+								isEx = true;
+								if (input[i+1] == '-' || input[i+1] == '+') {
+									// 跳过+/-号判断
+									i++;
+								}
+							}
+							else{
+								return _Unknow;
+							}
+						}// if
+						else if (GetTypeChar(input[i]) == _Dot){
 							if (isFloat == false) {
 								isFloat = true;
 							}
 							else{
 								return _Unknow;
 							}
-						}
+						}// else if
 						else{
 							return _Unknow;
 						}
@@ -217,11 +235,80 @@ namespace poac {
 		bool CScript::CreatScriptTree(){
 			int len_PartStr = m_ScriptStrPart.size();
 			int i = 0;
+			stack<SCalNode> A;
+			stack<SCalNode> B;
 			while(i < len_PartStr && m_ScriptStrPart[i] != ";"){
-				;
+				string tem = m_ScriptStrPart[i];
+				ETypeChar type_Str = GetTypeStr(tem);
+				if (type_Str == _VariableName) {
+					// 若是变量名
+					A.push(SCalNode(tem));
+				}
 			}
 
 			return true;
+		}
+		// 将数值类型的string转化为double
+		SVarValue CScript::String2VarValue(string input){
+			// 注，由于正负号与字符串分离，因此第一个符号不会出现+/-
+			// 只可能在科学计数法中字母e后出现+/-
+			if (GetTypeStr(input) != _Number || input.size() < 1) {
+				return SVarValue("NULL");
+			}
+
+			double val_input = 0;
+			int len_input = input.size();
+			int i = 0;
+			// 整数部分
+			while(i < len_input && input[i] != '.' && input[i] != 'e'/* 大写E暂不考虑*/){
+				val_input *= 10;
+				val_input += input[i] - '0';
+				i++;
+			}
+			// 小数部分
+			if (i < len_input && input[i] == '.') {
+				i++;
+				double _div = 10.0;
+				while(i < len_input && input[i] != 'e'){
+					val_input += (input[i] - '0')/_div;
+					_div *= 10.0;
+					i++;
+				}
+			}
+			// 指数部分
+			int input_index = 0;
+			bool flag = true;	// 正负号，默认为正
+			if (i < len_input && input[i] == 'e') {
+				i++;
+				if (input[i] == '+') {
+					flag = true;
+					i++;
+				}
+				else if (input[i] == '-') {
+					flag = false;
+					i++;
+				}
+				// 记录指数值
+				while(i < len_input){
+					input_index *= 10;
+					input_index += input[i] - '0';
+					i++;
+				}
+
+				if (flag == false) {
+					// 为负
+					input_index *= (-1);
+				}
+
+				val_input *= pow(10.0,input_index);
+			}
+
+			//if (abs(val_input-(int)val_input) < gk_MinErro) {
+			//	// 为整形
+			//	return SVarValue(input,(int)val_input);
+			//}
+			//else
+				return SVarValue(input,val_input);
 		}
 		// 清理成员变量，重新生成
 		void CScript::Clear(){
