@@ -11,14 +11,14 @@ namespace poac {
 
 		class CScriptCal{
 		public:
-			bool Cal(int x);
-			bool Cal(double x);
-			bool InitScript(string input);
+			bool Cal(int x){return true;}
+			bool Cal(double x){return true;}
+			bool InitScript(string input){return true;}
 			double GetY(){return y;}
 		private:
 			double y;
 			CCal m_cal;
-			script::CScript m_script;
+			CScript m_script;
 		};
 
 	};// namespace script

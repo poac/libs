@@ -244,6 +244,9 @@ namespace poac {
 					// 若是变量名
 					A.push(SCalNode(tem));
 				}
+				else if (type_Str == _Number) {
+
+				}
 			}
 
 			return true;
