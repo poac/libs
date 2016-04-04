@@ -1,4 +1,4 @@
-
+﻿
 #忽略windows生成的缩略图文件
 Thunbs.db
 #忽略Visual Studio生成时的产生的文件
@@ -13,6 +13,8 @@ Thunbs.db
 *_p.c
 *.ncb
 *.suo
+*.sdf
+ipch/
 *.tlb
 *.tlh
 *.bak
