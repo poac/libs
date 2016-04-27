@@ -29,6 +29,18 @@ namespace poac{
 		};
 
 		int GetPriority(string input){
+			// 若传入为空，取最低等级，或没有等级
+			if (input.size() == 0) {
+				// 可能后续需要修改或调整
+				return 10;
+			}
+
+			// =默认取最低的等级，即比NULL低一点，参考NULL修改
+			if (input == "=") {
+				return 9;
+			}
+
+			// 括号
 			string _No1_Priority[] = { "(", ")" };
 			// 一元运算符
 			string _No2_Priority[] = { "~",
@@ -91,7 +103,7 @@ namespace poac{
 			SVarValue(string name, double value):m_Name(name),m_Value(value),m_Type(_DoubleVale){}
 			SVarValue(string name, int value):m_Name(name),m_Value(value),m_Type(_IntVale){}
 			SVarValue(string name, unsigned int value):m_Name(name),m_Value(value),m_Type(_UnIntVale){}
-//			SVarValue(SVarValue s):m_Name(s.m_Name),m_Value(s.m_Value),m_Type(s.m_Type){}
+			SVarValue(const SVarValue& s):m_Name(s.m_Name),m_Value(s.m_Value),m_Type(s.m_Type){}
 
 			double GetDoubleValue() const {
 				if (m_Type == _DoubleVale) {
@@ -239,6 +251,7 @@ namespace poac{
 		public:
 			// 构造函数
 			COperation(){}
+			COperation(SVarValue svarvalue):m_Val(svarvalue){}
 			COperation(string name):m_Val(name){}
 			COperation(string name, double value):m_Val(name,value){}
 			COperation(string name, int value):m_Val(name,value){}

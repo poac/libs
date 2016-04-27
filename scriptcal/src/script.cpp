@@ -7,7 +7,7 @@ namespace poac {
 /*				  COperationFactory运算工厂成员函数	                    */
 /************************************************************************/
 		// 符号工厂，针对输入产生对应的符号计算对象
-		COperation* createOperation(string operate){
+		COperation* COperationFactory::createOperation(string operate){
 			// ...
 			COperation * oper = NULL;
 			if (operate.size() < 1) {
@@ -174,6 +174,20 @@ namespace poac {
 			string tem(1,input);
 			return isOperator(tem);
 		}
+		// 判断input中是否包含(
+		bool CScript::isHaveLeftParenthesis(string input){
+			if (input.size() < 1) {
+				return false;
+			}
+			
+			int len = input.size();
+			for (int i = 0; i < len; ++i) {
+				if (input[i] == '(') {
+					return true;
+				}
+			}
+			return false;
+		}
 		// 对输入的字符串进行分词
 		bool CScript::SeparateStr(string input){
 			int len_input = input.size();
@@ -233,20 +247,62 @@ namespace poac {
 		}
 		// 对分好的字符串建树
 		bool CScript::CreatScriptTree(){
+			// 临时变量构造树
+			SCalNode *temp_ScalNode = head;
+			// 字符串分割的数量
 			int len_PartStr = m_ScriptStrPart.size();
+			// 定义变量栈和符号栈
+			stack<COperation> stack_operation;	// 貌似不需要。。只要一个临时变量即可吧………………
+			string pre_operation;
+			stack<COperation> stack_variable;
+
 			int i = 0;
-			stack<SCalNode> A;
-			stack<SCalNode> B;
 			while(i < len_PartStr && m_ScriptStrPart[i] != ";"){
-				string tem = m_ScriptStrPart[i];
-				ETypeChar type_Str = GetTypeStr(tem);
+				string tem_StrPart = m_ScriptStrPart[i];
+				ETypeChar type_Str = GetTypeStr(tem_StrPart);
 				if (type_Str == _VariableName) {
 					// 若是变量名
-					A.push(SCalNode(tem));
+					COperation temp_coperation(tem_StrPart);
+					stack_variable.push(temp_coperation);
 				}
 				else if (type_Str == _Number) {
+					COperation temp_coperation(String2VarValue(tem_StrPart));
+					stack_variable.push(temp_coperation);
+				}
+				else if (type_Str == _Operate) {
+					// 先产生对应的函数工厂，若不存在再继续判断操作符
+					COperation *tem_operate = COperationFactory::createOperation(tem_StrPart);
+					if (tem_operate == NULL) {
+						if (tem_StrPart == ")") {
+							// 若是由于）引起，向上查找
+							// 先跳过处理过程
+						}
+						else {
+							// 出现无法识别的符号
+							return false;
+						}
+					}
+
+					// 操作符要对当前操作符比较优先级，确定指针上移还是下移
+					// 并构造计算节点SCalNode
+					// 先将比较过程写在这里，需移出去
+					if (GetPriority(tem_StrPart) < GetPriority(pre_operation)) {
+						// 若当前加入的操作符高于之前，即等级小，向下构造树
+						SCalNode *now_SCalNode = new SCalNode(*tem_operate);
+						now_SCalNode->m_Parent = temp_ScalNode;
+						if (temp_ScalNode != NULL) {
+							// temp_ScalNode 不为空，设置孩子
+							temp_ScalNode->m_Children.push_back(now_SCalNode);
+						}
+					}
+					else {
+						// 向上构造树
+
+					}
 
 				}
+
+				i++;
 			}
 
 			return true;
@@ -319,6 +375,5 @@ namespace poac {
 				m_ScriptStrPart.clear();
 			}
 		}
-
 	};
 };

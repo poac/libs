@@ -38,11 +38,23 @@ namespace poac{
 			COperation m_NodeValue;
 			SCalNode * m_Parent;
 			vector<SCalNode*> m_Children;
-
+			
 			SCalNode():m_NodeValue(),m_Parent(NULL){}
+			SCalNode(const COperation coperation):m_NodeValue(coperation),m_Parent(NULL){
+				// 指针放到外部进行考虑吧……比如构造树处
+			}
 			SCalNode(string name):m_NodeValue(name),m_Parent(NULL){}
 			SCalNode(string name, double value):m_NodeValue(name,value),m_Parent(NULL){}
 
+			SCalNode(const SCalNode &CopyScalNode){
+				// 拷贝复制函数
+				m_NodeValue = CopyScalNode.m_NodeValue;
+				m_Parent = CopyScalNode.m_Parent;
+				m_Children.clear();
+				for (int i = 0; i < CopyScalNode.m_Children.size(); i++) {
+					m_Children.push_back(CopyScalNode.m_Children[i]);
+				}
+			}
 		};
 
 		class CScript{
@@ -59,6 +71,8 @@ namespace poac{
 			// 判断是否是操作符
 			bool isOperator(char input);
 			bool isOperator(string input);
+			// 判断input中是否包含(
+			bool isHaveLeftParenthesis(string input);
 			// 对输入的字符串分词
 			bool SeparateStr(string input);
 			// 对分好的字符串建树
